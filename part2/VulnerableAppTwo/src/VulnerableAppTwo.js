@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const marked = require('marked');
+const escapeHtml = require('escape-html');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 
@@ -42,7 +43,8 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/comment', (req, res) => {
   const { comment } = req.body;
   // Vulnerable to XSS, as marked doesn't sanitize input by default
-  const htmlComment = marked(comment);
+  const sanitizedComment = escapeHtml(comment);
+  const htmlComment = marked(sanitizedComment);
   res.send(htmlComment);
 });
 
