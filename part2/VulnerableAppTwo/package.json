@@ -11,7 +11,8 @@
     "lodash": "4.17.10", 
     "marked": "4.0.10",
     "mongoose": "5.0.16", 
-    "request": "2.81.0"
+    "request": "2.81.0",
+    "escape-html": "^1.0.3"
   },
   "devDependencies": {},
   "author": "BSides CT Workshop",
